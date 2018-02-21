@@ -1,0 +1,38 @@
+EnableScript("jscript");  
+<%
+
+function imp()
+  {
+   var fso;
+   var hLock;
+   var hFilename;
+   AmiBroker=new ActiveXObject("Broker.Application");
+//AmiBroker.LoadDatabase("MT");
+   fso=new ActiveXObject("Scripting.FileSystemObject");
+   filename="C:\\Users\\jawakow\\AppData\\Roaming\\MetaQuotes\\Terminal\\65D1CFCD3F6A1A06FDD09AF8B01AA7EF\\MQL5\\Files\\historical_data.txt";
+
+//WScript.Echo( filename);
+   //filename=filename.replace(/\\/g,"\\\\");
+
+   AmiBroker.Import(0,filename,"mt4.format");
+//AmiBroker.SaveDatabase();
+//AmiBroker.RefreshAll();
+	
+   
+  }
+  
+%>
+
+script = GetScriptObject();
+
+if( Nz( StaticVarGet("InitializationDone") ) == 0 )
+{
+   StaticVarSet("InitializationDone", 1);
+   script.imp();
+ }  
+
+//script.imp();
+
+
+
+
