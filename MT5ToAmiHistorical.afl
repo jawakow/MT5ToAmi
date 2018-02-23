@@ -9,10 +9,10 @@ function imp()
    AmiBroker=new ActiveXObject("Broker.Application");
 //AmiBroker.LoadDatabase("MT");
    fso=new ActiveXObject("Scripting.FileSystemObject");
-   filename="C:\\Users\\jawakow\\AppData\\Roaming\\MetaQuotes\\Terminal\\65D1CFCD3F6A1A06FDD09AF8B01AA7EF\\MQL5\\Files\\historical_data.txt";
+   filename="C:\Program Files\AMP MetaTrader 5\MQL5\Files\historical_data.txt";
 
 //WScript.Echo( filename);
-   //filename=filename.replace(/\\/g,"\\\\");
+   filename=filename.replace(/\\/g,"\\\\");
 
    AmiBroker.Import(0,filename,"mt4.format");
 //AmiBroker.SaveDatabase();
@@ -31,7 +31,7 @@ if( Nz( StaticVarGet("InitializationDone") ) == 0 )
    script.imp();
  }  
 
-//script.imp();
+script.imp();
 
 
 

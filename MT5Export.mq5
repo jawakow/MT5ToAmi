@@ -10,7 +10,7 @@
 #property indicator_chart_window
 
 #import "shell32.dll"
-int ShellExecuteW(int hWnd,string Verb,string File,string Parameter,string Path,int ShowCommand);
+//int ShellExecuteW(int hWnd,string Verb,string File,string Parameter,string Path,int ShowCommand);
 #import
 string YMD,MDY,TimeHHMM;
 string D,M,Sym,Sym1;
@@ -109,7 +109,7 @@ void scanCustom(int bars,string filename)
 void Export(string Per)
   {
    MqlRates rates[];
-   ArraySetAsSeries(rates,true);
+   ArraySetAsSeries(rates,false);
 
    int sizeOfCopyRates=CopyRates(Symbol(),Period(),0,barsToImport,rates);
 //int HistBars=ArraySize(rates);
@@ -136,6 +136,11 @@ void Export(string Per)
 //Print(LastDate);
   }
 //+------------------------------------------------------------------+
+
+void Amiquote()
+{
+
+}
 
 int TimeDayMQL4(datetime date)
   {
